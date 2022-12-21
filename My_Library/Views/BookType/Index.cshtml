@@ -1,0 +1,43 @@
+﻿@model IEnumerable<My_Library.Entities.BookType>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Book Type List</h3>
+<div class="container-fluid">
+    <div class="row col-1">
+        <a class="btn btn-outline-primary " asp-action="Create">Create New</a>
+    </div>
+</div>
+<div class="col-md-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <h4>Book Type</h4>
+                    @* @Html.DisplayNameFor(model => model.booktype)*@
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <h5>
+                            @Html.DisplayFor(modelItem => item.booktype)
+                        </h5>
+                    </td>
+                    <td>
+                        <div class="row">
+                            <a class="btn btn-success col-5" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a class="btn btn-danger col-5" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

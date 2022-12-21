@@ -1,0 +1,57 @@
+﻿<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Libray</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/My_Library.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="aymain">
+        <div class="ayheader">
+            <div class="ayinside" style="float:left; margin-left:10px">
+                <input type="button" class="btn " style="color:wheat" value="<" onclick="history.back()">
+                <input type="button" class="btn " style="color:wheat" value=">" onclick="history.forward()">
+            </div>
+            <div class=" ayinside text-white" style=" float:right; margin-right:10px">
+                <div class="ayinside" >
+                <h5>My Library - Created By //aylmz</h5>
+                </div>
+            </div>
+        </div>
+        <div class="ayleftpanel">
+            <div>
+                <a class="btn btn-dark my-3 col-10" asp-action="Index" asp-controller="Home"> My Libray</a>
+            </div>
+            <div>
+                <a class="btn btn-dark my-3 col-10" asp-action="Index" asp-controller="Library"> Book List</a>
+            </div>
+            <div>
+                <a class="btn btn-dark my-3 col-10" asp-action="Create" asp-controller="Library"> Add Book</a>
+            </div>
+            <div>
+                <a class="btn btn-dark my-3 col-10" asp-action="Index" asp-controller="Library"> Filter Book</a>
+            </div>
+            <div>
+                <a class="btn btn-dark my-3 col-10" asp-action="Index" asp-controller="Library"> Send Excel</a>
+            </div>
+            <hr />
+             <div>
+               <a class="btn btn-dark my-3 col-10" asp-action="Index" asp-controller="BookType"> Book Type</a>
+            </div>
+        </div>
+        <div class="ayrightpanel">
+            <main role="main" class="form-control aybg">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/6c19264a14.js" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

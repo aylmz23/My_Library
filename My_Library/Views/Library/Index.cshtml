@@ -1,0 +1,68 @@
+﻿@model IEnumerable<My_Library.Entities.Library>
+
+@{
+    ViewData["Title"] = "IndexAsync";
+}
+
+<h1>Index</h1>
+
+<div class="container-fluid">
+    <div class="row col-1">
+        <a class="btn btn-outline-success " asp-action="Create">Create New</a>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Where)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Where)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>
+                <td>
+                <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-primary col-3"asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
