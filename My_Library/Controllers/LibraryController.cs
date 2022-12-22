@@ -49,10 +49,12 @@ namespace My_Library.Controllers
             {
                 if (Image is not null)
                 {
-                    string klasor = Directory.GetCurrentDirectory() + "/wwwroot/Img/" + Image.FileName; 
-                    using var stream = new FileStream(klasor, FileMode.Create); 
+                    string fileName=library.Name+"-"+library.Author;
+                    var extName=Path.GetExtension(Image.FileName);
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot","Img" , fileName+extName); 
+                    using var stream = new FileStream(path, FileMode.Create); 
                     Image.CopyTo(stream); 
-                    library.Image = Image.FileName;
+                    library.Image = fileName+extName;
                 }
                 _context.Libraries.Add(library);
                 _context.SaveChanges();
@@ -82,10 +84,12 @@ namespace My_Library.Controllers
             {
                 if (Image is not null)
                 {
-                    string klasor = Directory.GetCurrentDirectory() + "/wwwroot/Img/" + Image.FileName;
-                    using var stream = new FileStream(klasor, FileMode.Create);
+                    string fileName = library.Name + "-" + library.Author;
+                    var extName = Path.GetExtension(Image.FileName);
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Img", fileName + extName);
+                    using var stream = new FileStream(path, FileMode.Create);
                     Image.CopyTo(stream);
-                    library.Image = Image.FileName;
+                    library.Image = fileName + extName;
                 }
                 _context.Libraries.Update(library);
                 _context.SaveChanges();
