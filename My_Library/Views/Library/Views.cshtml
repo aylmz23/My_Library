@@ -5,17 +5,17 @@
 }
 
 <div class="ayinside">
-   @* @foreach (var item in Model)
+     @foreach (var item in Model)
     {        
     <div class="ay_card">
         <div class="ay_card_image">
-            <img src="@item.Image" alt="...">
+                <img src="~/Img/@item.Image" alt="...">
         </div >       
         <div class="ay_card_title">
             <p class="ay_card_text-Name">@item.Name</p>
             <p class="ay_card_text-Author">@item.Author</p>
-            <a href="#" class="btn btn-primary col-12">Details</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary col-12">Details</a>
         </div>
-    </div>*@
+    </div>
     }
     </div>

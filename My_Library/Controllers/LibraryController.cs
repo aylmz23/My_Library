@@ -65,9 +65,11 @@ namespace My_Library.Controllers
         }
 
         // GET: LibraryController1/Edit/5
-        public async Task<ActionResult> EditSync(int id)
-        {
-            var model= await _context.Libraries.FindAsync();
+        public  ActionResult Edit(int id)
+        { 
+            var model= _context.Libraries.Find(id);
+            ViewBag.StatusId = new SelectList(_context.Status.ToList(), "Id", "status");
+            ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "Name");
             return View(model);
         }
 
@@ -119,6 +121,12 @@ namespace My_Library.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult Views()
+        {
+            var model = _context.Libraries.Include(c => c.Status).Include(b => b.BookType).ToList();
+            return View(model);
         }
     }
 }

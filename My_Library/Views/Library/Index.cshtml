@@ -32,37 +32,39 @@
             <th>
                 @Html.DisplayNameFor(model => model.Image)
             </th>
-            <th></th>
+            <th class="col-2"></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                <td class="col-2">
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                <td>
+                <td class="col-2">
                     @Html.DisplayFor(modelItem => item.Author)
                 </td>
-                <td>
+                <td class="col-1">
                     @Html.DisplayFor(modelItem => item.BookType.Name)
                 </td>
-                <td>
+                <td class="col-1">
                     @Html.DisplayFor(modelItem => item.Where)
                 </td>
-                <td>
+                <td class="col-1">
                     @Html.DisplayFor(modelItem => item.Status.status)
                 </td>
-                <td>
+                <td class="col-2">
                     @* @Html.DisplayFor(modelItem => item.Image)*@
-                    <img src="~/Img/@item.Image" alt="" class="col-1" />
+                    <img src="~/Img/@item.Image" alt=""class="col-2" />
                 </td>
-                <td>
-                    <div class="row">
-                        <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <td class="col-3">
+                    <div >
+                        <div class="row">
+                            <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </div>
                     </div>
                 </td>
             </tr>

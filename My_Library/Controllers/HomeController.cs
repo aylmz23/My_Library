@@ -4,7 +4,9 @@ using System.Diagnostics;
 
 namespace My_Library.Controllers
 {
-    [Area("Library")]
+    
+
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

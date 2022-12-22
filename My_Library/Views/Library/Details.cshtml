@@ -4,66 +4,64 @@
 @{
     ViewData["Title"] = "Details";
 }
-
 <h3>Details</h3>
-
-<p>
-    <a class="btn btn-outline-primary col-2"Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
+    <h4>@Model.Name</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
+                </dt>
+                <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
+                </dt>
+                <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Author)
+                </dd>
+                <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.BookType)
-            </th>
-            <th>
+                </dt>
+                <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BookType.Name)
+                </dd>
+                <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Where)
-            </th>
-            <th>
+                </dt>
+                <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Where)
+                </dd>
+                <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
+                </dt>
+                <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Status.status)
+                </dd>
+                <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Image)
+                </dt>
+                <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Image)
+                </dd>
+                <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Notes)
-            </th>
+                </dt>
+                <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Notes)
+                </dd>
+            </dl>
+          
+                <input type="hidden" asp-for="Id" />
+                <a class="btn btn-success col-12" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> <br />
+                <a class="btn btn-outline-secondary col-12" asp-action="Index">Back to List</a>
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => @Model.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => @Model.Author)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => @Model.BookType.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => @Model.Where)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => @Model.Status.status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => @Model.Notes)
-            </td>
+        </div>
 
-            <td>
-                <div class="row">
-                <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
-                <a class="btn btn-primary col-3"asp-action="Details" asp-route-id="@Model.Id">Details</a> 
-                <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-                </div>
-            </td>
-        </tr>
-
-    </tbody>
-</table>
+        <div class="col-md-4">
+            <img src="/img/@Model.Image" alt="" class="col-6" />
+        </div>
+    </div>
+</div>

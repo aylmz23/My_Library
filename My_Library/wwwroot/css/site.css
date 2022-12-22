@@ -190,3 +190,16 @@ body {
     color: black;
     font-weight: 700;
 }
+
+.ay_dimage {
+    width: 280px;
+    left:10px;
+    display: flex;
+}
+.ay_dimage img {
+    width: 260px;
+    left:0px;
+    max-height:auto;
+    min-height: auto;
+    border-radius: 10px;
+}
