@@ -3,14 +3,15 @@
 @{
     ViewData["Title"] = "IndexAsync";
 }
-
+<div id="navbar">
 <h1>Index</h1>
 
-<div class="container-fluid">
+<div  class="container-fluid">
     <div class="row col-1">
         <a class="btn btn-outline-success " asp-action="Create">Create New</a>
     </div>
 </div>
+
 <table class="table">
     <thead>
         <tr>
@@ -61,8 +62,8 @@
                 <td class="col-3">
                     <div >
                         <div class="row">
-                            <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                            <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a> 
                             <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                         </div>
                     </div>
@@ -71,3 +72,4 @@
         }
     </tbody>
 </table>
+</div>

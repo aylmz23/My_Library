@@ -125,6 +125,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     border: solid 1px;
     border-color: blue;
+    scroll-behavior: auto;
 }
 
 .btn {
@@ -140,9 +141,9 @@ body {
 .ay_card {
     flex-wrap: wrap;
     background-color: rgb(220,220,220);
-    width: 220px;
-    max-height: 400px;
-    min-height: 400px;
+    width: 210px;
+    max-height: 390px;
+    min-height: 390px;
     border-color: darkgray;
     border-radius: 10px;
     border-style: solid;
@@ -152,9 +153,9 @@ body {
 }
 
 .ay_card_image {
-    width: 200px;
-    max-height: 270px;
-    min-height: 270px;
+    width: 190px;
+    max-height: 250px;
+    min-height: 250px;
     margin: auto;
     display: flex;
     text-align: center;
@@ -165,7 +166,7 @@ body {
     width: 200px;
     margin: auto;
     display: block;
-    padding: 1px;
+    padding: 10px;
     text-align: left;
     margin: auto;
 }
@@ -174,8 +175,8 @@ body {
     width: 200px;
     margin: auto;
     margin-top: 5px;
-    max-height: 260px;
-    min-height: 260px;
+    max-height: 250px;
+    min-height: 250px;
     border-radius: 5px;
 }
 
@@ -202,4 +203,11 @@ body {
     max-height:auto;
     min-height: auto;
     border-radius: 10px;
+}
+#navbar {
+    overflow:auto;
+    overflow-x:hidden;
+    top: 0;
+    transition: top 0.3s;
+    height:740px;
 }
