@@ -12,7 +12,7 @@ namespace My_Library.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; database=My_Library; integrated security=true;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; database=MyLibrary; integrated security=true;");
             base.OnConfiguring(optionsBuilder);
         }
     }

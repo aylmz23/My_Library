@@ -33,7 +33,7 @@ namespace My_Library.Entities
         public Status? Status { get; set; }
 
 
-        [Required(ErrorMessage = "{0} don't be empty!"), StringLength(30), Display(Name = "Book Image")]
+        [Required(ErrorMessage = "{0} don't be empty!"), StringLength(150), Display(Name = "Book Image")]
         public string Image { get; set; }
 
         [Required(ErrorMessage = "{0} don't be empty!"), StringLength(600), Display(Name = "About Book")]

@@ -1,14 +1,14 @@
 ﻿@using My_Library.Entities;
-@model IEnumerable<Library>
+@model Library
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h3>Details</h3>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-outline-primary col-2"Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -31,42 +31,39 @@
             <th>
                 @Html.DisplayNameFor(model => model.Notes)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => @Model.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Author)
+                @Html.DisplayFor(modelItem => @Model.Author)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BookType)
+                @Html.DisplayFor(modelItem => @Model.BookType.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Where)
+                @Html.DisplayFor(modelItem => @Model.Where)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @Html.DisplayFor(modelItem => @Model.Status.status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Notes)
+                @Html.DisplayFor(modelItem => @Model.Notes)
             </td>
+
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a class="btn btn-primary col-3"asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <div class="row">
+                <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> 
+                <a class="btn btn-primary col-3"asp-action="Details" asp-route-id="@Model.Id">Details</a> 
+                <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+                </div>
             </td>
         </tr>
-}
+
     </tbody>
 </table>

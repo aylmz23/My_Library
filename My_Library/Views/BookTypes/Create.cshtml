@@ -1,12 +1,9 @@
 ﻿@model My_Library.Entities.BookType
-
 @{
     ViewData["Title"] = "Create";
 }
-
 <h3>Add Book Type</h3>
-
-<hr />
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -15,17 +12,18 @@
                 <h5>
                     Book Type
                 </h5>
-                @*<label asp-for="booktype" class="control-label"></label>*@
-                <input asp-for="booktype" class="form-control" />
-                <span asp-validation-for="booktype" class="text-danger"></span>
+              @*  <label asp-for="Name" class="control-label"></label>*@
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group my-3">
                 <input type="submit" value="Create" class="btn btn-primary col-12" />
             </div>
         </form>
         <div>
-            <a class="btn btn-outline-secondary col-12" asp-action="Index">Back to List</a></div>
+            <a class="btn btn-outline-secondary col-12" asp-action="Index">Back to List</a>
         </div>
+    </div>
 </div>
 
 @section Scripts {

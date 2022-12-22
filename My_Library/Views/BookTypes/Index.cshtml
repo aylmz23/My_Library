@@ -5,20 +5,25 @@
 }
 
 <h3>Book Type List</h3>
+<br />
 <div class="container-fluid">
     <div class="row col-1">
-        <a class="btn btn-outline-primary " asp-action="Create">Create New</a>
+        <a class="btn btn-outline-success " asp-action="Create">Add New</a>
     </div>
 </div>
+<br />
 <div class="col-md-4">
+
     <table class="table">
         <thead>
             <tr>
-                <th>
-                    <h4>Book Type</h4>
-                    @* @Html.DisplayNameFor(model => model.booktype)*@
+                <th class="col-6">
+                    <h4>
+                        Book Type
+                    </h4>
+                    @* @Html.DisplayNameFor(model => model.Name)*@
                 </th>
-                <th></th>
+                <th class="col-6"></th>
             </tr>
         </thead>
         <tbody>
@@ -27,12 +32,12 @@
                 <tr>
                     <td>
                         <h5>
-                            @Html.DisplayFor(modelItem => item.booktype)
+                            @Html.DisplayFor(modelItem => item.Name)
                         </h5>
                     </td>
                     <td>
-                        <div class="row">
-                            <a class="btn btn-success col-5" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <div class="row ">
+                            <a class="btn btn-success col-5" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                             <a class="btn btn-danger col-5" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                         </div>
                     </td>

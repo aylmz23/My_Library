@@ -12,8 +12,8 @@ using My_Library.Data;
 namespace MyLibrary.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20221220160515_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20221221182602_Initial2")]
+    partial class Initial2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,7 @@ namespace MyLibrary.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("booktype")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -63,8 +63,8 @@ namespace MyLibrary.Migrations
 
                     b.Property<string>("Image")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Name")
                         .IsRequired()

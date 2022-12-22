@@ -9,7 +9,7 @@ namespace My_Library.Controllers
 {
     public class LibraryController : Controller
     {
-       // [Area("Library")]
+        //[Area("Library")]
         private readonly DatabaseContext _context;
 
         public LibraryController(DatabaseContext context) 
@@ -26,14 +26,17 @@ namespace My_Library.Controllers
         // GET: LibraryController1/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            ViewBag.StatusId = new SelectList(_context.Status.ToList(), "Id", "status");
+            ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "Name");
+            var model = _context.Libraries.Find(id);
+            return View(model);
         }
 
         // GET: LibraryController1/Create
         public ActionResult Create()
         {
             ViewBag.StatusId = new SelectList(_context.Status.ToList(), "Id", "status");
-            ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "booktype");
+            ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "Name");
             return View();
         }
 
@@ -71,7 +74,7 @@ namespace My_Library.Controllers
         // POST: LibraryController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Library library, IFormFile? Image, Status status, BookType booktype)
+        public ActionResult Edit(int id, Library library, IFormFile? Image)
         {
             try
             {
@@ -96,6 +99,8 @@ namespace My_Library.Controllers
         public async Task<ActionResult> DeleteAsync(int id)
         {
             var model=await _context.Libraries.SingleOrDefaultAsync(c=>c.Id==id);
+            ViewBag.StatusId = new SelectList(_context.Status.ToList(), "Id", "status");
+            ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "Name");
             return View(model);
         }
 
