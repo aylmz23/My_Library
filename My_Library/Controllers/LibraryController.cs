@@ -12,7 +12,7 @@ namespace My_Library.Controllers
         //[Area("Library")]
         private readonly DatabaseContext _context;
 
-        public LibraryController(DatabaseContext context) 
+        public LibraryController(DatabaseContext context)
         {
             _context = context;
         }
@@ -49,12 +49,13 @@ namespace My_Library.Controllers
             {
                 if (Image is not null)
                 {
-                    string fileName=library.Name+"-"+library.Author;
-                    var extName=Path.GetExtension(Image.FileName);
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot","Img" , fileName+extName); 
-                    using var stream = new FileStream(path, FileMode.Create); 
-                    Image.CopyTo(stream); 
-                    library.Image = fileName+extName;
+                    string fName = library.Name + "-" + library.Author;
+                    string fileName = string.Format(fName.ToLower().Replace('ü', 'u').Replace('ş', 's').Replace('ç', 'c').Replace('ğ', 'g').Replace('ö', 'o').Replace(' ', '_').Replace('İ', 'I').Trim().ToString());
+                    var extName = Path.GetExtension(Image.FileName);
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Img", fileName + extName);
+                    using var stream = new FileStream(path, FileMode.Create);
+                    Image.CopyTo(stream);
+                    library.Image = fileName + extName;
                 }
                 _context.Libraries.Add(library);
                 _context.SaveChanges();
@@ -67,9 +68,9 @@ namespace My_Library.Controllers
         }
 
         // GET: LibraryController1/Edit/5
-        public  ActionResult Edit(int id)
-        { 
-            var model= _context.Libraries.Find(id);
+        public ActionResult Edit(int id)
+        {
+            var model = _context.Libraries.Find(id);
             ViewBag.StatusId = new SelectList(_context.Status.ToList(), "Id", "status");
             ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "Name");
             return View(model);
@@ -84,7 +85,8 @@ namespace My_Library.Controllers
             {
                 if (Image is not null)
                 {
-                    string fileName = library.Name + "-" + library.Author;
+                    string fName = library.Name + "-" + library.Author;
+                    string fileName = string.Format(fName.ToLower().Replace('ü', 'u').Replace('ş', 's').Replace('ç', 'c').Replace('ğ', 'g').Replace('ö', 'o').Replace(' ', '_').Replace('İ', 'I').Trim().ToString());
                     var extName = Path.GetExtension(Image.FileName);
                     string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Img", fileName + extName);
                     using var stream = new FileStream(path, FileMode.Create);
@@ -104,7 +106,7 @@ namespace My_Library.Controllers
         // GET: LibraryController1/Delete/5
         public async Task<ActionResult> DeleteAsync(int id)
         {
-            var model=await _context.Libraries.SingleOrDefaultAsync(c=>c.Id==id);
+            var model = await _context.Libraries.SingleOrDefaultAsync(c => c.Id == id);
             ViewBag.StatusId = new SelectList(_context.Status.ToList(), "Id", "status");
             ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "Name");
             return View(model);
