@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<My_Library.Entities.Library>
 @{
     ViewData["Title"] = "Search";
+    int counter=0;
 }
 
 <h3>Search</h3>
@@ -18,11 +19,11 @@
                 <input class="form-control" type="text" placeholder="Search Status..." aria-label="Search for..." aria-describedby="btnNavbarSearch" name="SearchStatus" value="@ViewData["SearchStatus"]" />
             </div>
             <div class="col-2">
-                <input class="form-control" type="text" placeholder="Search Type..." aria-label="Search for..." aria-describedby="btnNavbarSearch" name="SearchBookType" value="@ViewData["SearchBookType"]" />
+                <input class="form-control" type="text" placeholder="Search Type..." aria-label="Search for..." aria-describedby="btnNavbarSearch" name="SearchBookType" value="@ViewData["SearchBookType"]" /> 
             </div>
 
             <div class="col-2">
-                <button class="btn btn-outline-secondary mx-4" asp-action="Search">All Book</button>
+                <button class="btn btn-outline-secondary mx-4" asp-action="Search">All Book</button> 
             </div>
         </div>
 
@@ -58,6 +59,7 @@
         <tbody>
             @foreach (var item in Model)
             {
+                counter++;
                 <tr>
                     <td class="col-2">
                         @Html.DisplayFor(modelItem => item.Name)
@@ -66,7 +68,7 @@
                         @Html.DisplayFor(modelItem => item.Author)
                     </td>
                     <td class="col-1">
-                        @Html.DisplayFor(modelItem => item.BookType.Name)
+                        @Html.DisplayFor(modelItem => item.BookType.Name) ;
                     </td>
                     <td class="col-1">
                         @Html.DisplayFor(modelItem => item.Where)
@@ -91,6 +93,7 @@
                     </td>
                 </tr>
             }
+            <p>Total Book: @counter</p>
         </tbody>
     </table>
 </div>
