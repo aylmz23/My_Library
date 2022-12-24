@@ -1,83 +1,96 @@
 ﻿@model IEnumerable<My_Library.Entities.Library>
 @{
     ViewData["Title"] = "Search";
-    Layout = "~/Views/Library/View.cshtml";
 }
 
-<h1>Search</h1>
+<h3>Search</h3>
 
-<div class="container">
-    <div class="col-4">
-        <form> 
-            <label>Search</label>
-        </form>
-    </div>
+<div class=" row my-2">
+    <form asp-action="Search" class="" role="search" method="get">
+        <div class="row">
+            <div class="col-3">
+                <input class="form-control " type="text" placeholder="Search Book..." aria-label="Search for..." aria-describedby="btnNavbarSearch" name="SearchText" value="@ViewData["SearchName"]" />
+            </div>
+            <div class="col-3">
+                <input class="form-control" type="text" placeholder="Search Author..." aria-label="Search for..." aria-describedby="btnNavbarSearch" name="SearchAuthor" value="@ViewData["SearchAuthor"]" />
+            </div>
+            <div class="col-2">
+                <input class="form-control" type="text" placeholder="Search Status..." aria-label="Search for..." aria-describedby="btnNavbarSearch" name="SearchStatus" value="@ViewData["SearchStatus"]" />
+            </div>
+            <div class="col-2">
+                <input class="form-control" type="text" placeholder="Search Type..." aria-label="Search for..." aria-describedby="btnNavbarSearch" name="SearchBookType" value="@ViewData["SearchBookType"]" />
+            </div>
+
+            <div class="col-2">
+                <button class="btn btn-outline-secondary mx-4" asp-action="Search">All Book</button>
+            </div>
+        </div>
+
+    </form>
 
 </div>
+<div id="navbarsearch">
 
-<div  class="container-fluid">
-    <div class="row col-1">
-        <a class="btn btn-outline-success " asp-action="Create">Create New</a>
-    </div>
-</div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BookType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Where)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th class="col-2"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="dataTable-sorter">
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Where)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th class="col-2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td class="col-2">
-                    @Html.DisplayFor(modelItem => item.Name)
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td class="col-2">
-                    @Html.DisplayFor(modelItem => item.Author)
+                        @Html.DisplayFor(modelItem => item.Author)
                     </td>
                     <td class="col-1">
-                    @Html.DisplayFor(modelItem => item.BookType.Name)
+                        @Html.DisplayFor(modelItem => item.BookType.Name)
                     </td>
                     <td class="col-1">
-                    @Html.DisplayFor(modelItem => item.Where)
+                        @Html.DisplayFor(modelItem => item.Where)
                     </td>
                     <td class="col-1">
-                    @Html.DisplayFor(modelItem => item.Status.status)
+                        @Html.DisplayFor(modelItem => item.Status.status)
                     </td>
                     <td class="col-2">
-                    @* @Html.DisplayFor(modelItem => item.Image)*@
-                        <img src="~/Img/@item.Image" alt=""class="col-2" />
+                        <div class="container">
+                            <img src="~/Img/@item.Image" alt="" class="col-2" />
+                        </div>
+                        @* @Html.DisplayFor(modelItem => item.Image)*@
                     </td>
                     <td class="col-3">
-                        <div >
+                        <div>
                             <div class="row">
-                                <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                                <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                                <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a>
                                 <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                             </div>
                         </div>
                     </td>
                 </tr>
-        }
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
+</div>

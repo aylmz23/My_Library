@@ -135,10 +135,31 @@ namespace My_Library.Controllers
             return View(model);
         }
 
-        public ActionResult Search()
+        public ActionResult Search(string SearchText, string SearchAuthor, string SearchStatus, string SearchBookType)
         {
-            var model = _context.Libraries.Include(c => c.Status).Include(b => b.BookType).ToList();
-            return View(model);
+           // var model = _context.Libraries.Include(c => c.Status).Include(b => b.BookType).ToList();
+            ViewData["SearchName"] = SearchText;
+            ViewData["SearchAuthor"]=SearchAuthor;
+            ViewData["SearchStatus"]=SearchStatus;
+            ViewData["SearchBookType"]=SearchBookType;
+            var books = from book in _context.Libraries.Include(c => c.Status).Include(b => b.BookType).ToList() select book;
+            if(!String.IsNullOrEmpty(SearchText)) 
+            {
+                books = books.Where(book => book.Name.Contains(SearchText));
+            }
+            if(!String.IsNullOrEmpty(SearchAuthor))
+                {
+                    books = books.Where(book => book.Author.Contains(SearchAuthor));
+                }
+            if (!String.IsNullOrEmpty(SearchStatus))
+            {
+                books = books.Where(book => book.Status.status.Contains(SearchStatus));
+            }
+            if (!String.IsNullOrEmpty(SearchBookType))
+            {
+                books = books.Where(book => book.BookType.Name.Contains(SearchBookType));
+            }
+            return View(books);
         }
     }
 }

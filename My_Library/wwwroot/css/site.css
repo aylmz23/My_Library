@@ -217,6 +217,13 @@ body {
     transition: top 0.3s;
     height:800px;
 }
+#navbarsearch {
+    overflow: auto;
+    overflow-x: hidden;
+    top: 0;
+    transition: top 0.3s;
+    height: 720px;
+}
 .ay_counter{
     font-size:24px;
     color:purple;
