@@ -1,16 +1,26 @@
 ﻿@model IEnumerable<My_Library.Entities.Library>
-
 @{
-    ViewData["Title"] = "IndexAsync";
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Library/View.cshtml";
 }
-<div id="navbar">
-<h1>Index</h1>
+
+<h1>Search</h1>
+
+<div class="container">
+    <div class="col-4">
+        <form> 
+            <label>Search</label>
+        </form>
+    </div>
+
+</div>
 
 <div  class="container-fluid">
     <div class="row col-1">
         <a class="btn btn-outline-success " asp-action="Create">Create New</a>
     </div>
 </div>
+
 <table class="table">
     <thead>
         <tr>
@@ -38,37 +48,36 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td class="col-2">
+                <tr>
+                    <td class="col-2">
                     @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td class="col-2">
+                    </td>
+                    <td class="col-2">
                     @Html.DisplayFor(modelItem => item.Author)
-                </td>
-                <td class="col-1">
+                    </td>
+                    <td class="col-1">
                     @Html.DisplayFor(modelItem => item.BookType.Name)
-                </td>
-                <td class="col-1">
+                    </td>
+                    <td class="col-1">
                     @Html.DisplayFor(modelItem => item.Where)
-                </td>
-                <td class="col-1">
+                    </td>
+                    <td class="col-1">
                     @Html.DisplayFor(modelItem => item.Status.status)
-                </td>
-                <td class="col-2">
+                    </td>
+                    <td class="col-2">
                     @* @Html.DisplayFor(modelItem => item.Image)*@
-                    <img src="~/Img/@item.Image" alt=""class="col-2" />
-                </td>
-                <td class="col-3">
-                    <div >
-                        <div class="row">
-                            <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
-                            <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a> 
-                            <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <img src="~/Img/@item.Image" alt=""class="col-2" />
+                    </td>
+                    <td class="col-3">
+                        <div >
+                            <div class="row">
+                                <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                                <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                                <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                </tr>
         }
     </tbody>
 </table>
-</div>
