@@ -187,6 +187,7 @@ body {
 }
 
 .ay_card_text-Author {
+    display:inline-block;
     font-size: 14px;
     color: black;
     font-weight: 700;
@@ -210,4 +211,11 @@ body {
     top: 0;
     transition: top 0.3s;
     height:800px;
+}
+.ay_counter{
+    font-size:24px;
+    color:purple;
+    z-index=-999;
+    margin-right=10px;
+    background-color:white;
 }
