@@ -66,7 +66,17 @@ namespace My_Library.Controllers
             }
             return View(bookType);
         }
-
+        //Create2
+        public async Task<IActionResult> Create2([Bind("Id,Name")] BookType bookType)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(bookType);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Create","Library");
+            }
+            return View(bookType);
+        }
         // GET: BookTypes/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

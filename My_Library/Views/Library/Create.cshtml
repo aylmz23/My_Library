@@ -23,7 +23,10 @@
             </div>
             <div class="form-group my-2">
                 <label asp-for="BookTypeId" class="control-label"></label>
-                <select asp-for="BookTypeId" class="form-select" asp-items="ViewBag.BookTypeId"> </select>
+                <div class="d-flex">
+                    <select asp-for="BookTypeId" class="form-select" asp-items="ViewBag.BookTypeId"> </select>
+                    <button type="button" onclick="AddType()" value="+" class="btn btn-outline-success col-md-1">+</button>
+                </div>
                 <span asp-validation-for="BookType" class="text-danger"></span>
             </div>
             <div class="form-group my-2">
@@ -42,7 +45,7 @@
             </div>
             <div class="form-group my-2">
                 <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" type="file"/>
+                <input asp-for="Image" class="form-control" type="file" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group my-2">
@@ -57,5 +60,41 @@
 
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
+<script>
+    function AddType() {
+        var myModal = new bootstrap.Modal(document.getElementById("myModal"));
+        myModal.show();
+    };
+</script>
+
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-autoheight" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myNodal">Add Book Type</h5>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create2" asp-controller="BookTypes">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group my-3">
+                        <h6>
+                           Book Type
+                        </h6>
+                        <br />
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group my-3">
+                        <input type="submit" value="Create" class="btn btn-primary col-12" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
