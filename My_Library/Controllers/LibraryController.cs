@@ -30,7 +30,7 @@ namespace My_Library.Controllers
             ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "Name");
             var model = _context.Libraries.Find(id);
             return View(model);
-        }
+        }        
 
         // GET: LibraryController1/Create
         public ActionResult Create()
