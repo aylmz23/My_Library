@@ -212,22 +212,22 @@ body {
 }
 
 .ay_hr {
-    background-color: aqua;
-    height:5px;
+    background-color: rgb(86, 173, 178);
+    height: 5px;
     margin: auto;
-    background-image: linear-gradient(to right, seagreen, rgb(0, 148, 255), rgba(0, 0, 0, 0));
-    box-shadow: 0px 0px 6px 1px aqua;
+    background-image: linear-gradient(to right, seagreen, rgb(86, 173, 178), rgba(86, 173, 178, 0.2));
+    box-shadow: 0px 0px 6px 1px rgb(86, 173, 178);
 }
 
 .ay_lt {
     position: relative;      
     margin: auto;
-    top: 510px;
+    top: 500px;
 }
 
-.ay_lt p { 
+    .ay_lt p {
         text-align: center;
         font-size: 32px;
-        color:seagreen;
-       /* box-shadow: 0px 0px 6px 1px aqua;*/
+        color: rgb(86, 173, 178);
+        /* box-shadow: 0px 0px 6px 1px aqua;*/
     }
