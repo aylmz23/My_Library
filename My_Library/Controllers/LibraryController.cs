@@ -59,7 +59,7 @@ namespace My_Library.Controllers
                 }
                 _context.Libraries.Add(library);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));               
             }
             catch
             {
