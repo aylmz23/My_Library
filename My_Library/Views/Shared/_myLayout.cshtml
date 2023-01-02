@@ -8,39 +8,59 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 </head>
 <body>
-    <div class="container-fluid bg-dark bg-opacity-25 p-3 d-flex h-100">
-        <div class="col-2 bg-dark d-block ">
-            <div class="row d-block">
-            <div class="d-flex">
-                <input type="button" class="btn col-3" style="color:wheat" value="<" onclick="history.back()">
-                <input type="button" class="btn col-3" style="color:wheat" value=">" onclick="history.forward()">
+    <div class="container-fluid bg-dark bg-opacity-25 p-3 d-flex h-100 ">
+        <div class="col-2 bg-dark d-block ay_rounded-left">
+            <div class="col-10 d-block m-auto">
+                <div class="d-flex my-2">
+                    <input type="button" class="btn col-2" style="color:wheat" value="<" onclick="history.back()">
+                    <input type="button" class="btn col-2" style="color:wheat" value=">" onclick="history.forward()">
+                </div>
             </div>
+
+            <div class="btn btn-dark my-3 col-10 d-block m-auto">
+                <div class="d-flex">
+                    <img class="col-2" src="/icon/book.png" alt="" />
+                    <a class=" col-10 text-white text-decoration-none mx-4 text-start lead" asp-action="Views" asp-controller="Library"> My Libray</a>
+                </div>
             </div>
-            <div class="btn btn-dark my-3 col-10 d-flex">
-                <img class="align-self-start col-2" src="/icon/book.png" alt="" width="20" />
-                <a class="align-item-end col-9 text-white" asp-action="Views" asp-controller="Library"> My Libray</a>
-            </div>
+
             <hr class="ay_hr col-10" />
-            <div class="btn btn-dark my-3 col-10 d-flex">
-                <img class="align-self-start col-2" src="/icon/list.png" alt="" width="20" />
-                <a class="align-item-end col-9 text-white" asp-action="Index" asp-controller="Library"> Book List</a>
+
+            <div class="btn btn-dark my-3 col-10 d-block m-auto">
+                <div class="d-flex">
+                    <img class="col-2" src="/icon/list.png" alt="" />
+                    <a class=" col-10 text-white text-decoration-none mx-4 text-start lead" asp-action="Index" asp-controller="Library"> Book List</a>
+                </div>
             </div>
-            <div class="btn btn-dark my-3 col-10 d-flex">
-                <img class="align-self-start col-2" src="/icon/addbook.png" alt="" width="20" />
-                <a class="align-item-end col-9 text-white" asp-action="Create" asp-controller="Library"> Add Book</a>
+            <div class="btn btn-dark my-3 col-10 d-block m-auto">
+                <div class="d-flex">
+                    <img class="col-2" src="/icon/addbook.png" alt="" />
+                    <a class="col-10 text-white text-decoration-none mx-4 text-start lead" asp-action="Create" asp-controller="Library"> Add Book</a>
+                </div>
             </div>
-            <div class="btn btn-dark my-3 col-10 d-flex">
-                <img class="align-self-start col-2" src="/icon/search.png" alt="" width="20" />
-                <a class="align-item-end col-9 text-white" asp-action="Search" asp-controller="Library"> Filter Book</a>
+            <div class="btn btn-dark my-3 col-10 d-block m-auto">
+                <div class="d-flex">
+                    <img class="col-2" src="/icon/search.png" alt="" />
+                    <a class="col-10 text-white text-decoration-none mx-4 text-start lead" asp-action="Search" asp-controller="Library"> Filter Book</a>
+                </div>
             </div>
-            <div class="btn btn-dark my-3 col-10 d-flex">
-                <img class="align-self-start col-2" src="/icon/excel.png" alt="" width="20" />
-                <a class="align-item-end col-9 text-white" href="~/Excel/ExportExcel">Send Excel</a>
+            <div class="btn btn-dark my-3 col-10 d-block m-auto">
+                <div class="d-flex">
+                    <img class="col-2" src="/icon/excel.png" alt="" />
+                    <a class="col-10 text-white text-decoration-none mx-4 text-start lead" href="~/Excel/ExportExcel">Send Excel</a>
+                </div>
             </div>
+
             <hr class="ay_hr col-10" />
-            <div class="btn btn-dark my-3 col-10 d-flex">
-                <img class="align-self-start col-2" src="/icon/addtype.png" alt="" width="20" />
-                <a class="align-item-end col-9 text-white" asp-action="Index" asp-controller="BookTypes"> Book Type</a>
+
+            <div class="btn btn-dark my-3 col-10 d-block m-auto">
+                <div class="d-flex">
+                    <img class="col-2" src="/icon/addtype.png" alt="" />
+                    <a class="col-10 text-white text-decoration-none mx-4 text-start lead" asp-action="Index" asp-controller="BookTypes"> Book Type</a>
+                </div>
+            </div>
+            <div class="col-10 ay_lt m-auto">
+                <p class="">@DateTime.Now.ToShortDateString()</p>
             </div>
         </div>
         <div class="col-10 d-block h-100">
@@ -50,7 +70,7 @@
                 </main>
             </div>
         </div>
-    </div>   
+    </div>
 
     <script src="https://kit.fontawesome.com/6c19264a14.js" crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

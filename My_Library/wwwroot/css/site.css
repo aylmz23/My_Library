@@ -5,12 +5,6 @@ html {
     flex-wrap: wrap;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -32,96 +26,14 @@ body {
     min-height:90%;
 }
 
-.aymain {
-    width: 1820px;
-    background-color: rgb(92,99,106);
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    border-radius: 20px;
-    margin-top: 10px;
-    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.5);
-}
-
-.ayinside {
-    flex-wrap: wrap;
-    display: flex;
-    margin: auto;
-    padding: 5px;
-    gap: 5px;
-}
-
-.ayheader {
-    width: 1820px;
-    min-width: 400px;
-    height: 50px;
-    display: inline-block;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 20px;
-    z-index: 0;
-}
-
-.ayrightpanel {
-    display: flex;
-    width: 1580px;
-    background-color: rgb(92,99,106);
-    border-bottom-right-radius: 20px;
-    min-height: 960px;
-    margin: auto;
-}
-
-.ayleftpanel {
-    margin-left: 0px;
-    display: inline-block;
-    width: 240px;
-    height: 960px;
-    border-bottom-left-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 20px;
-    z-index: 1;
-    position:relative;
-}
-
-.ay_leftpanel p {
-        font-size: 14px;
-        flex-wrap: wrap;
-        display: block;
-        color: white;
-        margin: 20px;
-        text-align: center;
-    }
-
-.ay_leftpanel_text {
-    font-size: 100%;
-    margin: 10px;
-    bottom: 0px;
-    position: fixed;
-    text-align: center;
-}
-
-.ay_rightpanel {
-    flex-wrap: nowrap;
-    display: flex;
-    max-width: 100%;
-    min-height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    border: solid 1px;
-    border-color: blue;
-    scroll-behavior: auto;
+.ay_rounded-left {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 .cl-o{
     background-color:rgb(245 166 35) !important;
 }
-
-.btn {
-    display: block;
-    margin: auto;
-}
-
-.btn a {
-        text-decoration: none;       
-    }
 
 .ay_card {
     flex-wrap: wrap;
@@ -218,11 +130,10 @@ body {
 
 .ay_lt {
     position: relative;      
-    margin: auto;
-    top: 500px;
+    top: 460px;
 }
 
-    .ay_lt p {
+.ay_lt p {
         text-align: center;
         font-size: 32px;
         color: rgb(86, 173, 178);
