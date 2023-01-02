@@ -30,7 +30,7 @@ namespace My_Library.Controllers
             ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "Name");
             var model = _context.Libraries.Find(id);
             return View(model);
-        }        
+        }
 
         // GET: LibraryController1/Create
         public ActionResult Create()
@@ -59,7 +59,7 @@ namespace My_Library.Controllers
                 }
                 _context.Libraries.Add(library);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index));               
+                return RedirectToAction(nameof(Index));
             }
             catch
             {
@@ -135,22 +135,21 @@ namespace My_Library.Controllers
             return View(model);
         }
 
-        public ActionResult Search(string SearchText, string SearchAuthor, string SearchStatus, string SearchBookType)
+        public ActionResult Search(string SearchName, string SearchAuthor, string SearchStatus, string SearchBookType)
         {
-           // var model = _context.Libraries.Include(c => c.Status).Include(b => b.BookType).ToList();
-            ViewData["SearchName"] = SearchText;
-            ViewData["SearchAuthor"]=SearchAuthor;
-            ViewData["SearchStatus"]=SearchStatus;
-            ViewData["SearchBookType"]=SearchBookType;
+            ViewData["Search_Name"] = SearchName;
+            ViewData["Search_Author"] = SearchAuthor;
+            ViewData["Search_Status"] = SearchStatus;
+            ViewData["Search_BookType"] = SearchBookType;
             var books = from book in _context.Libraries.Include(c => c.Status).Include(b => b.BookType).ToList() select book;
-            if(!String.IsNullOrEmpty(SearchText)) 
+            if (!String.IsNullOrEmpty(SearchName))
             {
-                books = books.Where(book => book.Name.Contains(SearchText));
+                books = books.Where(book => book.Name.Contains(SearchName));
             }
-            if(!String.IsNullOrEmpty(SearchAuthor))
-                {
-                    books = books.Where(book => book.Author.Contains(SearchAuthor));
-                }
+            if (!String.IsNullOrEmpty(SearchAuthor))
+            {
+                books = books.Where(book => book.Author.Contains(SearchAuthor));
+            }
             if (!String.IsNullOrEmpty(SearchStatus))
             {
                 books = books.Where(book => book.Status.status.Contains(SearchStatus));

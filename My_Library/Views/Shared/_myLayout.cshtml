@@ -5,30 +5,24 @@
     <title>My Libray</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/My_Library.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 </head>
 <body>
-    <div class="aymain">
-        <div class="ayheader bg-dark">
-            <div class="ayinside" style="float:left; margin-left:10px">
-                <input type="button" class="btn " style="color:wheat" value="<" onclick="history.back()">
-                <input type="button" class="btn " style="color:wheat" value=">" onclick="history.forward()">
+    <div class="container-fluid bg-dark bg-opacity-25 p-3 d-flex h-100">
+        <div class="col-2 bg-dark d-block ">
+            <div class="row d-block">
+            <div class="d-flex">
+                <input type="button" class="btn col-3" style="color:wheat" value="<" onclick="history.back()">
+                <input type="button" class="btn col-3" style="color:wheat" value=">" onclick="history.forward()">
             </div>
-            <div class=" ayinside text-white" style=" float:right; margin-right:10px">
-                <div class="ayinside" >
-                <h5>My Library - Created By //aylmz</h5>
-                </div>
             </div>
-        </div>
-        <div class="col-2 bg-dark">
             <div class="btn btn-dark my-3 col-10 d-flex">
                 <img class="align-self-start col-2" src="/icon/book.png" alt="" width="20" />
                 <a class="align-item-end col-9 text-white" asp-action="Views" asp-controller="Library"> My Libray</a>
             </div>
             <hr class="ay_hr col-10" />
             <div class="btn btn-dark my-3 col-10 d-flex">
-                <img class="align-self-start col-2"src="/icon/list.png" alt="" width="20"/>
+                <img class="align-self-start col-2" src="/icon/list.png" alt="" width="20" />
                 <a class="align-item-end col-9 text-white" asp-action="Index" asp-controller="Library"> Book List</a>
             </div>
             <div class="btn btn-dark my-3 col-10 d-flex">
@@ -42,22 +36,22 @@
             <div class="btn btn-dark my-3 col-10 d-flex">
                 <img class="align-self-start col-2" src="/icon/excel.png" alt="" width="20" />
                 <a class="align-item-end col-9 text-white" href="~/Excel/ExportExcel">Send Excel</a>
-            </div>           
-            <hr class="ay_hr col-10"/>
+            </div>
+            <hr class="ay_hr col-10" />
             <div class="btn btn-dark my-3 col-10 d-flex">
                 <img class="align-self-start col-2" src="/icon/addtype.png" alt="" width="20" />
                 <a class="align-item-end col-9 text-white" asp-action="Index" asp-controller="BookTypes"> Book Type</a>
             </div>
-            <div class="col-10 ay_lt">
-                <p class="">@DateTime.Now.ToShortDateString()</p>
+        </div>
+        <div class="col-10 d-block h-100">
+            <div class="bg-white">
+                <main role="main" class="container-fluid bg-dark bg-opacity-25">
+                    @RenderBody()
+                </main>
             </div>
         </div>
-        <div class="col-10 h-">
-            <main role="main" class="container-fluid aybg">
-                @RenderBody()
-            </main>
-        </div>
-    </div>
+    </div>   
+
     <script src="https://kit.fontawesome.com/6c19264a14.js" crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

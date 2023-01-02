@@ -15,11 +15,6 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 .aybg {
     background-color: rgba(255, 255, 255, 0.5)
 
@@ -33,6 +28,8 @@ html {
 body {
     background-image: linear-gradient(90deg, rgba(10, 10, 10, 0.6), rgba(60, 60, 60, 1));
     margin: auto;
+    width:90%;
+    min-height:90%;
 }
 
 .aymain {
@@ -184,7 +181,7 @@ body {
     overflow-x:hidden;
     top: 0;
     transition: top 0.3s;
-    height:840px;
+    height:89%;
 }
 
 #navbarView {
@@ -192,7 +189,7 @@ body {
     overflow-x: hidden;
     top: 0;
     transition: top 0.3s;
-    height: 960px;
+    height: 100%;
 }
 
 #navbarsearch {
@@ -200,7 +197,7 @@ body {
     overflow-x: hidden;
     top: 0;
     transition: top 0.3s;
-    height: 840px;
+    height: 87%;
 }
 
 .ay_counter{

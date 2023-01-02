@@ -3,12 +3,13 @@
 @{
     ViewData["Title"] = "Create";
 }
-
-<h3>Add New Book</h3>
+<div class="h-100">
+    <br />
+<h3 class="">Add New Book</h3>
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 col-sm-3">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group my-2">
@@ -24,7 +25,7 @@
             <div class="form-group my-2">
                 <label asp-for="BookTypeId" class="control-label"></label>
                 <div class="d-flex">
-                    <select asp-for="BookTypeId" class="form-select" asp-items="ViewBag.BookTypeId"> </select>
+                    <select asp-for="BookTypeId" class="form-select" asp-items="ViewBag.BookTypeId"> </select> <span class="vr mx-1"></span>
                     <button type="button" onclick="AddType()" value="+" class="btn btn-outline-success col-md-1">+</button>
                 </div>
                 <span asp-validation-for="BookType" class="text-danger"></span>
@@ -41,7 +42,7 @@
             </div>
             <div class="form-group my-2">
                 <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
+                <textarea asp-for="Notes" class="form-control" rows="2" /> </textarea>
             </div>
             <div class="form-group my-2">
                 <label asp-for="Image" class="control-label"></label>
@@ -49,13 +50,14 @@
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group my-2">
-                <input type="submit" value="Create" class="btn btn-primary col-12" id="liveToastBtn"/>
+                <input type="submit" value="Create" class="btn btn-primary col-12"/>
             </div>
-            <div>
+            <div class="my-2">
                 <a class="btn btn-secondary btn-block" asp-action="Index">Back to List</a>
             </div>
         </form>
     </div>
+</div>
 </div>
 
 @section Scripts {

@@ -72,6 +72,5 @@ namespace My_Library.Controllers
             var model =  _context.Libraries.Include(c => c.Status).Include(b => b.BookType).ToList();
             return View(model);
         }
-
     }
     }
