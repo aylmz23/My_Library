@@ -66,9 +66,9 @@
                     </td>
                     <td class="col-3">
                         <div>
-                            <div class="row">
-                                <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                                <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <div class="row-cols-3">
+                                <a class="btn btn-success col-3" asp-action="Edit" asp-route-id="@item.Id">Edit</a>                                 
+                                    <a class="btn btn-primary col-3" asp-action="Details" asp-route-id="@item.Id">Details</a>                                   
                                 <a class="btn btn-danger col-3" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                             </div>
                         </div>

@@ -7,25 +7,24 @@
 <h3 class="my-2">Book Type List</h3>
 
 <div class="container-fluid">
-    <div class="row col-2 my-1">
+    <div class="row col-lg-4 col-md-8 col-sm-12 my-1">
         <a class="btn btn-outline-success " asp-action="Create">Add New Book Type</a>
     </div>
 </div>
 <br />
 
-<div class="container col-4 float-start">
+    <div class="col-12 col-lg-8 col-md-10 col-sm-12 float-start">
     @foreach (var item in Model)
     {
-        <div class="row my-1 aybgi">
-            <div class="col-6 align-self-center">
+        <div class="row-cols-2 d-flex my-1 aybgi">
+            <div class=" align-self-center">
                 <h5 class="">
                     @Html.DisplayFor(modelItem => item.Name)
                 </h5>
             </div>
-            <div class="col-6 float-end align-content-around">
+                <div class=" float-end align-content-around">
                 <div class="row my-1">
-                    <a class="btn btn-success col-5" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <span class="vr"></span>
+                    <a class="btn btn-success col-5" asp-action="Edit" asp-route-id="@item.Id">Edit</a>                        
                     <a class="btn btn-danger col-5" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </div>
             </div>

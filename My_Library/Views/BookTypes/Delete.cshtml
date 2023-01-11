@@ -8,16 +8,16 @@
 <h3>Delete</h3>
 
 <h4>Are you sure you want to delete this?</h4>
-<div class="col-4">
+<div class="col-12">
     <h4>BookType</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+    <dl class="row-cols-2 d-flex">
+        <dt class = "col-3">
             <h5>
             @Html.DisplayNameFor(model => model.Name)
             </h5>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-9">
             <h5> @Html.DisplayFor(model => model.Name) </h5>
         </dd>
     </dl>
@@ -25,9 +25,9 @@
     <form asp-action="Delete">
         <div>  
          <input type="hidden" asp-for="Id" />
-            <input type="submit" value="Delete" class="btn btn-danger col-12" /> 
+            <input type="submit" value="Delete" class="btn btn-danger col-lg-6 col-md-8 col-sm-12 col-12 my-2" /> 
             <br />
-        <a class="btn btn-outline-secondary col-12" asp-action="Index">Back to List</a>
+                <a class="btn btn-outline-secondary col-lg-6 col-md-8 col-sm-12 my-2 col-12" asp-action="Index">Back to List</a>
         </div>
     </form>
 </div>
