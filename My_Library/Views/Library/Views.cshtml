@@ -5,14 +5,15 @@
     int counter = 0;
 }
 <div class="container-fluid" id="navbarView">
-    <div class="row my-2">
+    <div class="row gx-2 gx-lg-3 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-6  justify-content-center ">
+
         @foreach (var item in Model)
         {
             counter++;
-            <div class="col-2">
-                <div class="card my-3 bg-dark text-white" style="width:15rem">
-                    <div class="ay_card_image align-self-center">
-                        <img src="~/Img/@item.Image" class="my-1" alt="...">
+            <div class="container ay-zoom radius">
+                <div class="card my-3 bg-dark text-white radius" style="width:15rem">
+                    <div class="ay_card_image align-self-center radius">
+                        <img src="~/Img/@item.Image" class="my-1 " alt="..." id="viewImg">
                     </div>
                     <div class="card-body">
                         <p class="card-text ay_card_text-Name">@item.Name</p>
@@ -22,8 +23,8 @@
                 </div>
             </div>
         }
+        </div>
     </div>
-</div>
 <script>
     function BookDetails() {
         var myModal = new bootstrap.Modal(document.getElementById("myModal"));
