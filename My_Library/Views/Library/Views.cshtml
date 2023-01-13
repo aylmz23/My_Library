@@ -10,24 +10,26 @@
         @foreach (var item in Model)
         {
             counter++;
-            <div class="container ay-zoom radius">
-                <div class="card my-3 bg-dark text-white radius" style="width:15rem">
-                    <div class="ay_card_image align-self-center radius">
-                        <img src="~/Img/@item.Image" class="my-1 " alt="..." id="viewImg">
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text ay_card_text-Name">@item.Name</p>
-                        <p class="card-text ay_card_text-Author">@item.Author</p>
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning cl-o col-12">Details <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-success"> @counter </span></a>
+            @* <div class="container ay-zoom radius">
+        <div class="card my-3 bg-dark text-white radius" style="width:15rem">
+        <div class="ay_card_image align-self-center radius">
+        <img src="~/Img/@item.Image" class="my-1 " alt="..." id="viewImg">
+        </div>
+        <div class="card-body">
+        <p class="card-text ay_card_text-Name">@item.Name</p>
+        <p class="card-text ay_card_text-Author">@item.Author</p>
+        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning cl-o col-12">Details <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-success"> @counter </span></a>
+        </div>
+        </div>
+        </div>*@
+            <div class="container">
+                <div class="tile">
+                    <img src='~/Img/@item.Image' /><span class="position-absolute badge rounded-pill bg-success "> @counter </span>
+                    <div class="container  d-flex">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning m-auto col-10 animate-text">Details </a>
                     </div>
                 </div>
             </div>
         }
-        </div>
     </div>
-<script>
-    function BookDetails() {
-        var myModal = new bootstrap.Modal(document.getElementById("myModal"));
-        myModal.show();
-    };
-</script>
+</div>
