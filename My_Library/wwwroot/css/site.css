@@ -39,7 +39,56 @@ body {
     min-height: 90%;
     min-width: 720px;
 }
-
+/******************************/
+.col025 {
+    width: 2.5%;
+}
+.col05{
+    width:5%;
+}
+.col10 {
+    width: 10%;
+}
+.col15 {
+    width: 15%;
+}
+.col20 {
+    width: 20%;
+}
+.col25 {
+    width: 25%;
+}
+.col30 {
+    width: 30%;
+}
+.col33 {
+    width: 33.3333%;
+}
+.col40 {
+    width: 40%;
+}
+.col50 {
+    width: 50%;
+}
+.col60 {
+    width: 60%;
+}
+.col70 {
+    width: 70%;
+}
+.col75 {
+    width: 75%;
+}
+.col80 {
+    width: 80%;
+}
+.col90 {
+    width: 90%;
+}
+.col100 {
+    width: 100%;
+}
+/******************************/
 .ay_left {
     width: 240px;
     min-width: 240px;
@@ -70,14 +119,12 @@ body {
     }
     .letf_text span{       
     }
-
     .ay_lt {
         position: relative;
         top: 440px;
         text-align: center;
         color: rgb(86, 173, 178);
     }
-
         .ay_lt p {
             font-size: 14px;
         }
@@ -164,6 +211,7 @@ body {
     top: 0;
     transition: top 0.3s;
     height: 100%;
+    flex-flow:column wrap;
 }
 
 #navbarsearch {
