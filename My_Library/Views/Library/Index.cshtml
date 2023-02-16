@@ -63,9 +63,8 @@
                         </td>
                         <td class="col-1">
                             <div class="container">
-                                <img src="~/Img/@item.Image" alt="" class="col-3" />
+                                <img id="myDiv" src="~/Img/@item.Image" alt="" class="col-3" onmouseover="setImage();ShowBook()" />
                             </div>
-                            @* @Html.DisplayFor(modelItem => item.Image)*@
                         </td>
                         <td class="col-3">
                             <div>
@@ -80,5 +79,29 @@
                 }
             </tbody>
         </table>
+        <div id="ayModal">
+            <div class="modal top fade bg-transparent" id="ShowModal" tabindex="51" aria-labelledby="exampleModalLabel" aria-hidden="true"
+                 data-mdb-backdrop="true" data-mdb-keyboard="true">
+                <div class="modal-dialog bg-transparent">
+                    <div class="modal-content d-flex bg-transparent">
+                        <div class="modal-body m-auto"> <img id="setImage" src="" alt="" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<script>
+    function setImage() {
+        var myVar = document.getElementById("myDiv").src;
+        document.getElementById("setImage").src = myVar;
+    }
+    function ShowBook() {
+        var myModal = new bootstrap.Modal(document.getElementById("ShowModal"));
+        myModal.show();
+    };
+    function HideBook() {
+        document.getElementById('ayModal').classList.add("newClass");
+    }
+</script>
