@@ -10,16 +10,46 @@
         @foreach (var item in Model)
         {
             counter++;
-            <div class="container" >
-                <a asp-action="Details" asp-route-id="@item.Id" onmouseover="ShowBook()">
-                    <div class="tile">
-                        <img src='~/Img/@item.Image' /><span class="position-absolute badge rounded-pill bg-success "> @counter </span>
-                    </div>
-                </a>
+            <div class="container">
+                @*<a asp-action="Details" asp-route-id="@item.Id" onmouseover="ShowBook()" >
+            <div class="tile">
+            <img src='~/Img/@item.Image' /><span class="position-absolute badge rounded-pill bg-success "> @counter </span>
             </div>
+            </a>*@
+                <div class="tile">
+                    <img src="~/Img/@item.Image" alt="Thumbnail Image" onclick="openLightbox('Img/@item.Image')"> <span class="position-absolute badge rounded-pill bg-success "> @counter </span>
+                </div>
+            </div>
+
+            <div id="lightbox" onclick="closeLightbox()">
+                <div class="col-6 d-flex m-auto">
+                    <img src="" alt="Lightbox Image">
+                    </div >
+                <div class="col-6 d-flex m-auto">
+                    <a class="btn btn-primary btn-state col-4" asp-action="Details" asp-route-id="@item.Id">
+                        Details
+                    </a>
+                </div>
+            </div>
+
         }
-</div>
+    </div>
 
 
+    <script>
+        function openLightbox(imageUrl) {
+            // Set the lightbox image source to the clicked thumbnail's source
+            var lightboxImage = document.querySelector('#lightbox img');
+            lightboxImage.src = imageUrl;
+            // Show the lightbox
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'block';
+        }
 
+        function closeLightbox() {
+            // Hide the lightbox
+            var lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+    </script>
 
