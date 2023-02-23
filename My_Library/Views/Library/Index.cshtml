@@ -63,7 +63,7 @@
                         </td>
                         <td class="col-1">
                             <div class="container">
-                                <img id="myDiv" src="~/Img/@item.Image" alt="" class="col-3" onmouseover="setImage();ShowBook()" />
+                                <img id="myDiv" src="~/Img/@item.Image" alt="" class="col-3" onmouseover="openLightbox('/Img/@item.Image')" />
                             </div>
                         </td>
                         <td class="col-3">
@@ -78,7 +78,11 @@
                     </tr>
                 }
             </tbody>
+
         </table>
+        <div id="lightbox" onmouseout="closeLightbox()">
+            <img src="" alt="Lightbox Image">
+        </div>
         <div id="ayModal">
             <div class="modal top fade bg-transparent" id="ShowModal" tabindex="51" aria-labelledby="exampleModalLabel" aria-hidden="true"
                  data-mdb-backdrop="true" data-mdb-keyboard="true">
@@ -93,13 +97,29 @@
 </div>
 
 <script>
+
+    function openLightbox(imageUrl) {
+        // Set the lightbox image source to the clicked thumbnail's source
+        var lightboxImage = document.querySelector('#lightbox img');
+        lightboxImage.src = imageUrl;
+        // Show the lightbox
+        var lightbox = document.getElementById('lightbox');
+        lightbox.style.display = 'block';
+    }
+
+    function closeLightbox() {
+        // Hide the lightbox
+        var lightbox = document.getElementById('lightbox');
+        lightbox.style.display = 'none';
+    }
+
     function setImage() {
         var myVar = document.getElementById("myDiv").src;
         document.getElementById("setImage").src = myVar;
     }
-    function ShowBook() {
+    function ShowBook(myImage) {
         var myModal = new bootstrap.Modal(document.getElementById("ShowModal"));
-        myModal.show();
+        myModal.show(myImage);
     };
     function HideBook() {
         document.getElementById('ayModal').classList.add("newClass");
