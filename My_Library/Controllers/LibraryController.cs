@@ -50,7 +50,7 @@ namespace My_Library.Controllers
                 if (Image is not null)
                 {
                     string fName = library.Name + "-" + library.Author;
-                    string fileName = string.Format(fName.ToLower().Replace('ü', 'u').Replace('ş', 's').Replace('ç', 'c').Replace('ğ', 'g').Replace('ö', 'o').Replace(' ', '_').Replace('İ', 'I').Trim().ToString());
+                    string fileName = string.Format(fName.ToLower().Replace('ı', 'i').Replace('ü', 'u').Replace('ş', 's').Replace('ç', 'c').Replace('ğ', 'g').Replace('ö', 'o').Replace(' ', '_').Replace('İ', 'I').Trim().ToString());
                     var extName = Path.GetExtension(Image.FileName);
                     string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Img", fileName + extName);
                     using var stream = new FileStream(path, FileMode.Create);
@@ -70,6 +70,7 @@ namespace My_Library.Controllers
         // GET: LibraryController1/Edit/5
         public ActionResult Edit(int id)
         {
+
             var model = _context.Libraries.Find(id);
             ViewBag.StatusId = new SelectList(_context.Status.ToList(), "Id", "status");
             ViewBag.BookTypeId = new SelectList(_context.BookTypes.ToList(), "Id", "Name");
